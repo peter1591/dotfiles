@@ -100,8 +100,8 @@ set ignorecase
 set incsearch
 set lazyredraw
 set list
+set listchars=tab:»·,trail:·
 set mouse=a
-set number
 set nowrap
 set ruler
 set scrolloff=5
@@ -123,6 +123,12 @@ set virtualedit=block
 set visualbell t_vb=
 set wildmenu
 set wildignore=*.o,*.so,*.swp,*~,*.pyc
+
+set number
+set relativenumber
+highlight LineNr ctermfg=grey
+nnoremap <C-N> :set number!<CR>:set relativenumber!<CR>
+
 " TODO(Darkpi): See if there's better colorscheme available?
 colorscheme torte
 " }}}
@@ -411,6 +417,7 @@ let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 " Mappings {{{
 noremap <F5> :YcmForceCompileAndDiagnostics<CR>
 inoremap <F5> <ESC>:YcmForceCompileAndDiagnostics<CR>
+nnoremap <Leader>d :YcmCompleter GoToDeclaration<CR>
 " }}}
 " Autocmds {{{
 autocmd MyAutoCmd BufWritePost * silent YcmForceCompileAndDiagnostics
@@ -442,24 +449,6 @@ map n <Plug>(easymotion-next)
 map N <Plug>(easymotion-prev)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-" }}}
-" }}}
-
-" FastFold {{{
-" Settings {{{
-let g:fastfold_force=1
-" }}}
-" }}}
-
-" Indent guide {{{
-" Settings {{{
-let g:indent_guides_auto_colors=0
-let g:indent_guides_guide_size=1
-let g:indent_guides_enable_on_vim_startup=1
-" }}}
-" Autocmds {{{
-autocmd MyAutoCmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=235
-autocmd MyAutoCmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=235
 " }}}
 " }}}
 
