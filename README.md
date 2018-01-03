@@ -1,7 +1,7 @@
 New dotfiles repo.
 
 ``` sh
-bash <(curl -s https://raw.githubusercontent.com/peter50216/dotfiles/master/fetch.sh)
+bash <(curl -s https://raw.githubusercontent.com/peter1591/dotfiles/master/fetch.sh)
 ```
 
 Total rewrite in progress...

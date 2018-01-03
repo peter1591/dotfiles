@@ -1,5 +1,4 @@
 " vim: set fmr={{{,}}} fdls=0 fdm=marker:
-" peter50216's vimrc.
 
 "--------------------------------------------------------------------
 " Plugins {{{
@@ -169,7 +168,6 @@ set statusline=%!BuildStatusLine(winnr())
 
 "--------------------------------------------------------------------
 " Abbreviations {{{
-iabbrev @@ peter50216@gmail.com
 " TODO(Darkpi): Abbreviations for frequent typos.
 " }}}
 
