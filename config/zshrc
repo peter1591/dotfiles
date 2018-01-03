@@ -25,7 +25,6 @@ source ~/.dotfiles/modules/k/k.sh
 
 source ~/.dotfiles/zsh/alias.zsh
 source ~/.dotfiles/zsh/env.zsh
-source ~/.dotfiles/zsh/lazy.zsh
 source ~/.dotfiles/zsh/ddb.sh
 
 for file in ~/.dotfiles/zsh/functions/*.zsh; do
