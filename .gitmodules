@@ -22,3 +22,6 @@
 [submodule "modules/fzf"]
 	path = modules/fzf
 	url = https://github.com/junegunn/fzf.git
+[submodule "modules/vim-localrc"]
+	path = modules/vim-localrc
+	url = https://github.com/peter1591/vim-localrc.git
