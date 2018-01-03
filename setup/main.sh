@@ -3,7 +3,7 @@
 if [[ ! -f ~/.dotfiles/.setup ]]; then
   echo -e '\e[1;33mFirst time setup! Make sure we have everything installed...\e[m'
   pushd ~/.dotfiles/
-    ./setup/essential.sh
+    ./setup/essentials.sh
     ret=$?
   popd
   if [[ $ret == 0 ]]; then
