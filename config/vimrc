@@ -109,7 +109,6 @@ set sessionoptions-=curdir
 set noshiftround
 set shiftwidth=2
 set showcmd
-set signcolumn=yes
 set smartcase
 set smartindent
 set softtabstop=2
@@ -479,6 +478,11 @@ nmap <Leader>sc <Plug>SlimeConfig
 
 " vim-gitgutter {{{
 " Settings {{{
+if version >= 800
+  set signcolumn=yes
+else
+  let g:gitgutter_sign_column_always=1
+endif
 let g:gitgutter_map_keys=0
 " }}}
 " }}}
