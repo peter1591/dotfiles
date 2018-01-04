@@ -20,6 +20,9 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'scrooloose/syntastic'
 " }}}
 
+Plug 'vim-airline/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
+
 " Fast formatting & moving around {{{
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'Lokaltog/vim-easymotion'
