@@ -40,6 +40,9 @@
 
 - shell:
   -
+    command: git config --global http.cookiefile ~/.gitcookies
+    description: Set up git global settings
+  -
     command: setup/main.sh
     description: Running setup script
     stdin: true
