@@ -5,13 +5,7 @@
 bash <(curl -s https://raw.githubusercontent.com/peter1591/dotfiles/master/fetch.sh)
 ```
 
-Build YouCompleteMe by:
-``` sh
-cd ~/.vim/plugged/YouCompleteMe
-./install.py
-```
-
-Then, open vim to install plugins by typeing :PlugInstall
+This will checkout the dotfile repository to `~/dotfiles`, and install all stuffs.
 
 ## Basic Usage
 
