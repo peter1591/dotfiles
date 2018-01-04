@@ -21,9 +21,23 @@ z mycode
 
 Lead key is set to the space key.
 
-Hit space key twice to start fzf file search.
+#### Normal mode
+
+<Space><Space>: start fzf file search
 
 <Space>d: go to declaration
+
+Shift+R: toggle nerd tree
+
+#### Visual mode
+
+Mark a view characters, then:
+
+Ctrl+R: replace
+
+Tab: increase indent
+
+Shift-Tab: decrease indent
 
 ## Reference
 
