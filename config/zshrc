@@ -50,3 +50,5 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
+
+source /etc/bash_completion.d/g4d

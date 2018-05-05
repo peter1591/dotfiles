@@ -1,6 +1,6 @@
 [user]
   name = Shen-En Shih
-  email = petershih@chromium.org
+	email = petershih@google.com
 [merge]
   tool = vimdiff
 [core]
