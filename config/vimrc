@@ -1,5 +1,4 @@
 set nocompatible
-source /usr/share/vim/google/google.vim
 filetype plugin indent on
 syntax on
 
@@ -26,6 +25,8 @@ Plug 'vim-scripts/restore_view.vim'
 
 Plug 'Raimondi/delimitMate'
 
+Plug 'Valloric/YouCompleteMe'
+
 call plug#end()
 
 "--------------------------------------------------------------------
@@ -36,7 +37,7 @@ set completeopt=longest,menuone
 set confirm
 set colorcolumn=80
 set encoding=utf8
-set expandtab
+"set expandtab
 set fcs=vert:\|
 set fileencoding=utf8
 set fileencodings=utf8,iso-8859-1,big5,cp950
@@ -93,30 +94,6 @@ nnoremap <Leader>q :bp\|bd #<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>e :e<CR>
 
-Glug alert
-
-Glug codefmt
-Glug codefmt-google
-augroup autoformat_settings
-  autocmd FileType borg,gcl,patchpanel AutoFormatBuffer gclfmt
-  autocmd FileType bzl AutoFormatBuffer buildifier
-  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
-  autocmd FileType dart AutoFormatBuffer dartfmt
-  autocmd FileType go AutoFormatBuffer gofmt
-  autocmd FileType java AutoFormatBuffer google-java-format
-  autocmd FileType jslayout AutoFormatBuffer jslfmt
-  autocmd FileType markdown AutoFormatBuffer mdformat
-  autocmd FileType ncl AutoFormatBuffer nclfmt
-  autocmd FileType python AutoFormatBuffer pyformat
-  autocmd FileType textpb AutoFormatBuffer text-proto-format
-  " autocmd FileType html,css,json AutoFormatBuffer js-beautify
-augroup END
-
-Glug piper plugin[mappings]
-Glug relatedfiles plugin[mappings]
-
-Glug syntastic-google
-Glug youcompleteme-google
 nnoremap <Leader>d :YcmCompleter GoToDeclaration<CR>
 nnoremap <Leader>f :YcmCompleter FixIt<CR>
 
@@ -125,25 +102,6 @@ nnoremap <Leader>f :YcmCompleter FixIt<CR>
 cnoremap w!! SudoWrite
 " }}}
 " }}}
-
-Glug g4
-
-Glug corpweb plugin[mappings]
-noremap <unique> <leader>cs :CorpWebCs<Space>
-
-Glug blaze plugin[mappings]='<leader>b'
-Glug blazedeps
-nnoremap <leader>bu :BlazeDepsUpdate<CR>
-
-Glug ultisnips-google
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-
-Glug outline-window
-nnoremap <leader>g :GoogleOutlineWindow<CR>
-
-Glug whitespace
 
 " BufSurf {{{
 " Mappings {{{
@@ -161,36 +119,3 @@ nnoremap q: :q
 nnoremap <leader>aif :let g:clang_include_fixer_query_mode=0<cr>:pyf /usr/lib/clang-include-fixer/clang-include-fixer.py<cr>
 "Query mode. Parse the part around cursor.
 nnoremap <leader>if :let g:clang_include_fixer_query_mode=1<cr>:pyf /usr/lib/clang-include-fixer/clang-include-fixer.py<cr>
-
-function! G4Blame(...)
-  " Grab the filename from the argument, use expand() to expand '%'.
-  if a:0 > 0
-    let file = expand(a:1)
-  else
-    let file = expand('%')
-  endif
-  " Lock scrolling in right pane
-  setl scb
-  " Create left pane
-  vnew
-  " It's 37 columns wide
-  vert res 37
-  " Get the output, split it on newline and keep empty lines, skip the first 2
-  " lines because they're headers we don't need, and put it in starting on line
-  " 1 of the left pane
-  call setline(1, split(system('g4 blame ' . file), '\n', 1)[2:])
-  " Lock scrolling in left pane, turn off word wrap, set the buffer as
-  " not-modified, remove any listchars highlighting (common in google code), set
-  " it readonly (to make modifications slightly more annoying).
-  setl scb nowrap nomod nolist ro
-  " Move back to the right pane (not sure if there's a better way to do this?)
-  exe "normal \<c-w>\<right>"
-  " if a file was specified, open it
-  if a:0 > 0
-    execute "e ". file
-  endif
-  " Get the non-active pane scrolled to the same relative offset.
-  syncbind
-endfunction
-
-com! -nargs=? -complete=file Blame :call G4Blame(<f-args>)

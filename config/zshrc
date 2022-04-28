@@ -25,7 +25,7 @@ source ~/.dotfiles/modules/k/k.sh
 
 source ~/.dotfiles/zsh/alias.zsh
 source ~/.dotfiles/zsh/env.zsh
-source ~/.dotfiles/zsh/ddb.sh
+#source ~/.dotfiles/zsh/ddb.sh
 
 for file in ~/.dotfiles/zsh/functions/*.zsh; do
   source "$file"
@@ -50,5 +50,3 @@ fancy-ctrl-z () {
 }
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
-
-source /etc/bash_completion.d/g4d
