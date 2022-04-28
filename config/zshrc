@@ -53,6 +53,7 @@ bindkey '^Z' fancy-ctrl-z
 
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
+plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
-bindkey '^R' fzf-history-widget
+bindkey '^r' fzf-history-widget
