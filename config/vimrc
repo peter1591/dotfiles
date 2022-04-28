@@ -119,3 +119,5 @@ nnoremap q: :q
 nnoremap <leader>aif :let g:clang_include_fixer_query_mode=0<cr>:pyf /usr/lib/clang-include-fixer/clang-include-fixer.py<cr>
 "Query mode. Parse the part around cursor.
 nnoremap <leader>if :let g:clang_include_fixer_query_mode=1<cr>:pyf /usr/lib/clang-include-fixer/clang-include-fixer.py<cr>
+
+let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
