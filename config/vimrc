@@ -78,8 +78,7 @@ set relativenumber
 highlight LineNr ctermfg=grey
 nnoremap <C-N> :set number!<CR>:set relativenumber!<CR>
 
-" TODO(Darkpi): See if there's better colorscheme available?
-colorscheme torte
+colorscheme darkblue
 " }}}
 
 " Custom keybinding {{{
