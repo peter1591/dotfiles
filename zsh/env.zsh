@@ -1,1 +1,1 @@
-export PATH=$HOME/bin:$HOME/bin/common:$PATH
+export PATH=$HOME/bin:$HOME/bin/common:$HOME/dotfiles/bin:$PATH
