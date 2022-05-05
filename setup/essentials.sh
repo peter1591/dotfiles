@@ -6,7 +6,7 @@ ask_skip 'apt-get update' || sudo apt-get update
 
 # Detect if things are already installed, so that we don't override user
 # compiled ones.
-sudo apt-get -y install build-essential python-dev
+sudo apt-get -y install build-essential cmake vim-nox python3-dev
 command -v zsh >/dev/null 2>&1 || sudo apt-get -y install zsh
 command -v tmux >/dev/null 2>&1 || sudo apt-get -y install tmux
 command -v vim >/dev/null 2>&1 || sudo apt-get -y install vim
