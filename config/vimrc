@@ -26,7 +26,10 @@ Plug 'Raimondi/delimitMate'
 
 Plug 'Valloric/YouCompleteMe'
 
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -78,7 +81,7 @@ set relativenumber
 highlight LineNr ctermfg=grey
 nnoremap <C-N> :set number!<CR>:set relativenumber!<CR>
 
-colorscheme darkblue
+colorscheme elflord
 " }}}
 
 " Custom keybinding {{{
@@ -122,4 +125,30 @@ nnoremap <leader>if :let g:clang_include_fixer_query_mode=1<cr>:pyf /usr/lib/cla
 
 let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
 
-nnoremap <leader>l :CtrlPBuffer<cr>
+
+
+function! FzfTagsCurrentWord()
+  let l:word = expand('<cword>')
+  let l:list = taglist(l:word)
+  if len(l:list) == 1
+    execute ':tag ' . l:word
+  else
+    call fzf#vim#tags(l:word)
+  endif
+endfunction
+noremap <leader>d :call FzfTagsCurrentWord()<cr>
+
+function! FzfRgCurrentWord()
+  let l:word = expand('<cword>')
+  let l:list = taglist(l:word)
+  if len(l:list) == 1
+    execute ':Rg ' . l:word
+  else
+    call fzf#vim#tags(l:word)
+  endif
+endfunction
+noremap <leader>g :call FzfRgCurrentWord()<cr>
+
+noremap <leader>r :Files<cr>
+noremap <leader>l :Buffers<cr>
+"nnoremap <leader>l :CtrlPBuffer<cr>

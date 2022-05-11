@@ -25,3 +25,6 @@
 [submodule "modules/vim-localrc"]
 	path = modules/vim-localrc
 	url = https://github.com/peter1591/vim-localrc.git
+[submodule "modules/diff-so-fancy"]
+	path = modules/diff-so-fancy
+	url = https://github.com/so-fancy/diff-so-fancy.git
